@@ -1,12 +1,30 @@
-# Baba-Katalog — کاتالوگ محصولات / Product Catalogs
+# Baba-Katalog — کاتالوگ محصولات سینا / Sina Product Catalogs
 
 یک سایت ساده، سریع و دوزبانه (فارسی/انگلیسی) برای نمایش کاتالوگ محصولات.
 مشتری با اسکن QR Code وارد صفحه اصلی می‌شود، محصول دلخواهش را انتخاب می‌کند
-و کاتالوگ آن محصول به‌صورت کاملاً HTML/CSS نمایش داده می‌شود.
+و کاتالوگ آن محصول به‌صورت تحت وب (HTML/CSS) نمایش داده می‌شود.
 
 A simple, fast, bilingual (Persian/English) site for showing product catalogs.
-A customer scans a QR code, lands on the home page, picks a product, and sees
-that product's catalog rendered fully in HTML/CSS.
+A customer scans a QR code, lands on the home page, picks a product, and views
+that product's catalog in the browser.
+
+> صفحات هر کاتالوگ از روی فایل PDF اصلی با کیفیت بالا به تصویر تبدیل شده‌اند تا
+> طراحی حرفه‌ای کاتالوگ‌ها دقیقاً حفظ شود. فایل PDF اصلی هم برای دانلود در دسترس است.
+>
+> Each catalog's pages are rendered as high-resolution images from the original
+> PDF so the design is preserved exactly; the original PDF is also downloadable.
+
+---
+
+## محصولات / Products
+
+| id | فارسی | English |
+|----|-------|---------|
+| `incubator` | انکوباتور CO₂ سینا | Sina CO₂ Incubator |
+| `roller-bottle-incubator` | انکوباتور رولینگ باتل سینا | Sina Roller Bottle Incubator |
+| `orbital-shaker` | اوربیتال شیکر سینا | Sina Orbital Shaker |
+| `single-use-bioreactor` | بیوراکتور یکبارمصرف سینا | Sina Single-Use Bioreactor |
+| `peristaltic-pump` | پمپ پریستالتیک سینا | Sina Peristaltic Pump |
 
 ---
 
@@ -16,48 +34,50 @@ that product's catalog rendered fully in HTML/CSS.
 index.html              # صفحه اصلی (مقصد QR Code) — لیست محصولات
 product.html            # صفحه نمایش کاتالوگ یک محصول (product.html?id=...)
 assets/
-  css/styles.css        # استایل‌ها
+  css/styles.css        # استایل‌ها (موبایل‌فرست، RTL/LTR، دارک‌مود)
   js/i18n.js            # متن‌های دوزبانه و مدیریت زبان
   js/catalogs.js        # ★ داده کاتالوگ‌ها — اینجا را ویرایش کنید
   js/main.js           # منطق رندر صفحات
-  img/<id>/            # عکس‌های هر کاتالوگ
-pdf/                    # فایل‌های PDF اصلی را اینجا بگذارید
+  img/<id>/            # تصاویر صفحات هر کاتالوگ (page-1.jpg ...)
+pdf/<id>.pdf            # فایل PDF اصلی هر کاتالوگ
 ```
 
 ---
 
-## افزودن کاتالوگ جدید / Adding a new catalog
+## افزودن یا تغییر کاتالوگ / Add or update a catalog
 
-۱. فایل PDF را در پوشه `pdf/` بگذارید.
-۲. عکس‌های صفحات (در صورت نیاز) را در `assets/img/<id>/` قرار دهید.
-۳. در فایل `assets/js/catalogs.js` یک آیتم جدید اضافه کنید:
+۱. تصاویر صفحات را در `assets/img/<id>/page-1.jpg`، `page-2.jpg` ... قرار دهید.
+۲. فایل PDF را در `pdf/<id>.pdf` بگذارید.
+۳. در `assets/js/catalogs.js` یک آیتم اضافه کنید:
 
 ```js
 {
-  id: "my-product",                       // در URL استفاده می‌شود: product.html?id=my-product
+  id: "my-product",
   name: { fa: "نام محصول", en: "Product name" },
   tagline: { fa: "توضیح کوتاه", en: "Short description" },
-  accent: "#2563eb",                       // رنگ اصلی کارت
-  cover: "assets/img/my-product/cover.jpg",// اختیاری
-  pages: [
-    {
-      image: "assets/img/my-product/page-1.jpg", // اختیاری
-      title: { fa: "عنوان", en: "Title" },
-      description: { fa: "متن...", en: "Text..." },
-      features: { fa: ["ویژگی ۱"], en: ["Feature 1"] }
-    }
-  ]
+  accent: "#1d4ed8",
+  pdf: "pdf/my-product.pdf",
+  pages: pageImages("my-product", 5) // تعداد صفحات
 }
 ```
 
-> اگر `cover` یا `image` خالی باشد، یک placeholder رنگی خودکار نمایش داده می‌شود.
+### تبدیل PDF به تصویر / Render a PDF to images
+
+```bash
+pip install pymupdf
+python3 - <<'PY'
+import fitz
+doc = fitz.open("pdf/my-product.pdf")
+for i, page in enumerate(doc):
+    pix = page.get_pixmap(matrix=fitz.Matrix(2, 2))   # 2x = کیفیت خوب
+    with open(f"assets/img/my-product/page-{i+1}.jpg", "wb") as f:
+        f.write(pix.tobytes("jpeg", jpg_quality=82))
+PY
+```
 
 ---
 
 ## اجرای محلی / Run locally
-
-چون فقط فایل‌های استاتیک هستند، کافی است `index.html` را در مرورگر باز کنید،
-یا یک سرور ساده اجرا کنید:
 
 ```bash
 python3 -m http.server 8000
@@ -66,7 +86,8 @@ python3 -m http.server 8000
 
 ---
 
-## QR Code
+## انتشار و QR Code / Publishing & QR Code
 
-پس از اینکه سایت را روی یک هاست (مثلاً GitHub Pages) منتشر کردید،
-یک QR Code بسازید که به آدرس `index.html` اشاره کند.
+ساده‌ترین راه انتشار رایگان، **GitHub Pages** است:
+`Settings → Pages → Branch` را انتخاب و ذخیره کنید. سپس یک QR Code بسازید که به
+آدرس منتشرشده (`index.html`) اشاره کند.

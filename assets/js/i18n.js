@@ -12,10 +12,11 @@ const I18N = {
     back: "بازگشت به فهرست",
     page: "صفحه",
     of: "از",
+    downloadPdf: "دانلود فایل PDF",
     notFound: "کاتالوگ مورد نظر پیدا نشد",
     backHome: "بازگشت به صفحه اصلی",
     langButton: "EN",
-    footer: "تمامی حقوق محفوظ است",
+    footer: "تمامی حقوق محفوظ است · گروه صنعتی سینا",
   },
   en: {
     siteTitle: "Product Catalogs",
@@ -25,10 +26,11 @@ const I18N = {
     back: "Back to list",
     page: "Page",
     of: "of",
+    downloadPdf: "Download PDF",
     notFound: "Catalog not found",
     backHome: "Back to home",
     langButton: "فا",
-    footer: "All rights reserved",
+    footer: "All rights reserved · Sina Industrial Group",
   },
 };
 

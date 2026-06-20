@@ -165,47 +165,42 @@ main {
 .product-title { font-size: clamp(1.7rem, 5vw, 2.6rem); margin: 0 0 8px; }
 .product-tagline { color: var(--muted); margin: 0; font-size: 1.1rem; }
 
-.pages { display: flex; flex-direction: column; gap: 28px; }
+.pdf-btn {
+  margin-top: 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.pdf-icon { font-size: 1.1em; line-height: 1; }
 
-.catalog-page {
+/* Catalog reader: stacked page images */
+.reader {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  max-width: 860px;
+  margin: 0 auto;
+}
+.reader-page {
+  margin: 0;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   overflow: hidden;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
 }
-.page-media { min-height: 260px; }
-.page-media img { width: 100%; height: 100%; object-fit: cover; }
-.page-content { padding: 28px; }
-
-.page-counter {
-  display: inline-block;
-  font-size: .8rem;
-  font-weight: 700;
-  color: var(--accent);
-  background: color-mix(in srgb, var(--accent) 12%, transparent);
-  padding: 4px 12px;
-  border-radius: 999px;
-  margin-bottom: 14px;
+.reader-page img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
-.page-title { margin: 0 0 12px; font-size: 1.5rem; }
-.page-description { color: var(--text); margin: 0 0 16px; }
-
-.features { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
-.features li {
-  position: relative;
-  padding-inline-start: 26px;
-  color: var(--text);
-}
-.features li::before {
-  content: "✓";
-  position: absolute;
-  inset-inline-start: 0;
-  top: 0;
-  color: var(--accent);
-  font-weight: 800;
+.reader-counter {
+  text-align: center;
+  font-size: .82rem;
+  font-weight: 600;
+  color: var(--muted);
+  padding: 8px 12px;
+  border-top: 1px solid var(--border);
 }
 
 /* ----------------------------- Empty state -------------------------- */
@@ -232,9 +227,8 @@ main {
 
 /* ----------------------------- Responsive --------------------------- */
 @media (max-width: 720px) {
-  .catalog-page { grid-template-columns: 1fr; }
-  .page-media { aspect-ratio: 16 / 10; min-height: 0; }
-  .page-content { padding: 22px; }
+  main { padding: 20px 14px 48px; }
+  .reader { gap: 16px; }
 }
 
 /* ------------------------------ Dark mode --------------------------- */
