@@ -167,6 +167,32 @@ const SHEET_VP200 = {
   applications: PUMP_COMMON_APPS,
 };
 
+const SHEET_VP600 = {
+  title: { fa: "پمپ پریستالتیک VP600", en: "Peristaltic pump VP600" },
+  subtitle: SUBTITLE,
+  photo: "assets/img/products/vp600.jpg",
+  features: [
+    { fa: "بدنهٔ استیل ضدزنگ (ASTM304)", en: "Stainless steel case (ASTM304)" },
+    { fa: "میکروکنترلر سری ARM", en: "ARM series micro-controller" },
+    { fa: "یک یا دو کانال شیلنگ سیلیکونی", en: "One or two channel of silicon tubes" },
+    { fa: "مکانیزم بدون نیاز به نگهداری", en: "Maintenance-free mechanism" },
+    { fa: "غلتک‌های استیل ضدزنگ با بلبرینگ", en: "Stainless steel rollers with bearing" },
+    { fa: "موتور سروو گشتاور بالا، ۱-۵۰۰ RPM", en: "High torque servo motor, 1-500 RPM" },
+    { fa: "نمایشگر هفت‌قطعه‌ای", en: "7-Segment display" },
+    { fa: "دارای حالت دیسپنسینگ", en: "Dispensing mode available" },
+    { fa: "بازده بالا و صدای بسیار کم", en: "High efficiency and very low noise" },
+    { fa: "قابلیت اطمینان کارکرد بی‌وقفه", en: "Non-stop operational reliability" },
+    { fa: "راه‌اندازی خارجی با سیگنال ۰-۱۰ ولت و دیجیتال", en: "External driving by 0-10 V and digital signals" },
+    { fa: "دبی ۱۰۰ تا ۱۰۰۰۰ میلی‌لیتر بر دقیقه", en: "100 - 10000 ml/min flowrate" },
+  ],
+  applications: [
+    { fa: "پمپ حجم‌بالا و فشارقوی", en: "Large volume, high pressure pump" },
+    { fa: "صنایع دارویی", en: "Pharmaceutical industries" },
+    { fa: "فعالیت‌های شیمیایی", en: "Chemical activities" },
+    { fa: "پمپاژ مایعات خطرناک", en: "Pumping hazardous liquids" },
+  ],
+};
+
 const SHEET_DG6 = {
   title: { fa: "پمپ پریستالتیک DG6", en: "Peristaltic pump DG6" },
   subtitle: SUBTITLE,
@@ -269,6 +295,14 @@ const CATALOGS = [
     accent: "#1d4ed8",
     cover: "assets/img/products/bioreactor.jpg",
     sheets: [SHEET_BIOREACTOR],
+  },
+  {
+    id: "pump-vp600",
+    name: { fa: "پمپ پریستالتیک VP600", en: "Peristaltic Pump VP600" },
+    tagline: { fa: "حجم بالا و فشار قوی، دبی تا ۱۰۰۰۰ میلی‌لیتر بر دقیقه", en: "High volume & pressure, up to 10000 ml/min" },
+    accent: "#1d4ed8",
+    cover: "assets/img/products/vp600.jpg",
+    sheets: [SHEET_VP600],
   },
   {
     id: "pump-vp200",
