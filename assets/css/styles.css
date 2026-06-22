@@ -156,7 +156,7 @@ main {
 
 /* Header */
 .sheet-head { padding: 22px 26px 0; }
-.sheet-logo { height: 40px; width: auto; }
+.sheet-logo { height: 40px; width: auto; display: block; margin-right: auto; }
 .sheet-band {
   margin: 16px -26px 0;
   padding: 18px 26px;
