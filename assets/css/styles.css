@@ -99,7 +99,7 @@ main {
 /* ------------------------------ Home grid --------------------------- */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(270px, 100%), 1fr));
   gap: 24px;
 }
 .card {
@@ -277,11 +277,19 @@ main {
 /* ----------------------------- Responsive --------------------------- */
 @media (max-width: 720px) {
   main { padding: 22px 14px 48px; }
+  .hero { padding: 38px 20px; border-radius: 18px; }
+  .grid { gap: 18px; }
   .reader { gap: 22px; }
   .sheet-body { flex-direction: column; }
   .sheet-photo img { max-height: 240px; }
   .sheet-head, .sheet-apps, .sheet-specs, .sheet-benefits { padding-left: 18px; padding-right: 18px; }
   .sheet-band { margin-left: -18px; margin-right: -18px; padding-left: 18px; padding-right: 18px; }
+}
+
+@media (max-width: 380px) {
+  .topbar-inner { padding: 12px 14px; }
+  .brand { font-size: .95rem; gap: 8px; }
+  .hero { padding: 30px 16px; }
 }
 
 /* ------------------------------ Dark mode --------------------------- */
