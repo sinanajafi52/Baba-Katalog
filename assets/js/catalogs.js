@@ -43,9 +43,9 @@ const SHEET_INCUBATOR = {
       { fa: "شیکر", en: "Shaker" },
     ],
     rows: [
-      [{ fa: "SCI-60", en: "SCI-60" }, { fa: "۶۰ لیتر", en: "60 L" }, { fa: "NDIR (0-20%)", en: "NDIR (0-20%)" }, { fa: "PID (30-50%)", en: "PID (30-50%)" }, { fa: "۰-۹۹٪", en: "0-99%" }, { fa: "—", en: "—" }],
-      [{ fa: "SCI-120", en: "SCI-120" }, { fa: "۱۲۰ لیتر", en: "120 L" }, { fa: "NDIR (0-20%)", en: "NDIR (0-20%)" }, { fa: "PID (30-50%)", en: "PID (30-50%)" }, { fa: "۰-۹۹٪", en: "0-99%" }, { fa: "قابل سفارش", en: "On request" }],
-      [{ fa: "SCI-172", en: "SCI-172" }, { fa: "۱۷۲ لیتر", en: "172 L" }, { fa: "NDIR (0-20%)", en: "NDIR (0-20%)" }, { fa: "PID (30-50%)", en: "PID (30-50%)" }, { fa: "۰-۹۹٪", en: "0-99%" }, { fa: "قابل سفارش", en: "On request" }],
+      [{ fa: "SCI-60", en: "SCI-60" }, { fa: "۶۰ لیتر", en: "60 L" }, { fa: "NDIR (0-20%)", en: "NDIR (0-20%)" }, { fa: "PID (30-50)", en: "PID (30-50)" }, { fa: "0-99%", en: "0-99%" }, { fa: "—", en: "—" }],
+      [{ fa: "SCI-120", en: "SCI-120" }, { fa: "۱۲۰ لیتر", en: "120 L" }, { fa: "NDIR (0-20%)", en: "NDIR (0-20%)" }, { fa: "PID (30-50)", en: "PID (30-50)" }, { fa: "0-99%", en: "0-99%" }, { fa: "قابل سفارش", en: "On request" }],
+      [{ fa: "SCI-172", en: "SCI-172" }, { fa: "۱۷۲ لیتر", en: "172 L" }, { fa: "NDIR (0-20%)", en: "NDIR (0-20%)" }, { fa: "PID (30-50)", en: "PID (30-50)" }, { fa: "0-99%", en: "0-99%" }, { fa: "قابل سفارش", en: "On request" }],
     ],
   },
 };
@@ -57,7 +57,7 @@ const SHEET_ROLLER = {
   photo: "assets/img/products/roller.jpg",
   features: [
     { fa: "بدنه و چمبر از جنس استیل ضدزنگ (ASTM304)", en: "Body and chamber in stainless steel (ASTM304)" },
-    { fa: "مجهز به کنترلر هوشمند سری ARM", en: "ARM series smart controller" },
+    { fa: "مجهز به کنترلر هوشمند سری STM32", en: "STM32 series smart controller" },
     { fa: "مجهز به فیلتر داخلی جهت فیلتراسیون گاز CO₂ ورودی", en: "Internal filter for incoming CO₂ gas" },
     { fa: "گردش موثر هوای محفظه و گرمایش یکنواخت", en: "Effective air circulation and uniform heating" },
     { fa: "مناسب برای کشت انواع سلول‌های چسبنده", en: "Suitable for culturing all adherent cell types" },
